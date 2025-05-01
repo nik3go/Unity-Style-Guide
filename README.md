@@ -453,36 +453,37 @@ namespace ProjectName
 }
 ```
 
-#### Script Templates
-To save some time you can overwrite Unity's default script template with your own  to automatically setup the namespace and regions etc. See this Unity [support](https://support.unity3d.com/hc/en-us/articles/210223733-How-to-customize-Unity-script-templates) article to learn how.
+#### Шаблоны скриптов
+Чтобы сэкономить время, вы можете переопределить шаблон скрипта Unity по умолчанию своим собственным, чтобы автоматически задавались пространство имён, регионы и т. д. Подробнее см. в этой статье [поддержки Unity](https://support.unity3d.com/hc/en-us/articles/210223733-How-to-customize-Unity-script-templates).
 
 <a name="namespace"></a>
-#### Namespace
-Use a namespace to ensure your scoping of classes/enum/interface/etc won't conflict with existing ones from other namespaces or the global namespace. The project should at minimum use the projects name for the Namespace to prevent conflicts with any imported Third Party assets.
+#### Пространство имён
+Используйте пространство имён, чтобы убедиться, что область видимости ваших классов/перечислений/интерфейсов и т. д. не конфликтует с существующими из других пространств имён или глобального пространства имён. Проект должен, как минимум, использовать имя самого проекта в качестве пространства имён, чтобы избежать конфликтов с любыми импортированными сторонними ассетами.
 
-#### All Public Functions Should Have A Summary
+#### Все публичные функции должны иметь описание
 
-Simply, any function that has an access modifier of Public should have its summary filled out. 
+Проще говоря, любая функция с модификатором доступа `public` должна иметь заполненное описание.
 
-```
+
+```csharp
 /// <summary>
-/// Fire a gun
+/// Выстрел из оружия
 /// </summary>
 public void Fire()
 {
-// Fire the gun.
+    // Произвести выстрел.
 }
 ```
 
-#### Foldout Groups
-If a class has only a small number of variables, Foldout Groups are not required.
+#### Группы со сворачиванием
+Если класс содержит лишь небольшое количество переменных, группы со сворачиванием не требуются.
 
-If a class has a moderate amount of variables (5-10), all [Serializable](#serializable) variables should have a non-default Foldout Group assigned. A common category is `Config`.
+Если класс содержит умеренное количество переменных (5–10), все [сериализуемые](#serializable) переменные должны быть объединены в нестандартную группу со сворачиванием. Распространённая категория — `Config`.
 
-To create Foldout Groups there are 2 options in Unity. 
+Для создания групп со сворачиванием в Unity есть два варианта:
 
-* The first is to define a `[Serializable] public Class` inside the main class however this can have a performance impact. This allows the use of the same variable name to be shared.
-* The second option is to use the Foldout Group Attribute available with [Odin Inspector](https://odininspector.com/).
+* Первый — определить `[Serializable] public Class` внутри основного класса, однако это может повлиять на производительность. Это позволяет использовать одно и то же имя переменной повторно.
+* Второй вариант — использовать атрибут Foldout Group, доступный в [Odin Inspector](https://odininspector.com/).
 
 ```
 [[Serializable](https://docs.unity3d.com/ScriptReference/Serializable.html)]
@@ -495,25 +496,27 @@ public struct PlayerStats
 public int MovementSpeed = 1;
 ```
 
-#### Commenting
-Comments should be used to describe intention, algorithmic overview, and/or logical flow.
-It would be ideal if from reading the comments alone someone other than the author could understand a function’s intended behavior and general operation.
+#### Комментирование
+Комментарии следует использовать для описания намерений, общего алгоритма и/или логического потока.
+Идеально, если, читая только комментарии, кто-то, кроме автора, сможет понять предполагаемое поведение и общую работу функции.
 
-While there are no minimum comment requirements and certainly some very small routines need no commenting at all, it is hoped that most routines will have comments reflecting the programmer’s intent and approach.
+Хотя нет минимальных требований к количеству комментариев, и некоторые очень простые процедуры действительно могут обойтись без них, желательно, чтобы большинство процедур имели комментарии, отражающие намерения и подход программиста.
 
-##### Comment Style
-Place the comment on a separate line, not at the end of a line of code.
+##### Стиль комментариев
+Размещайте комментарий на отдельной строке, а не в конце строки с кодом.
 
-Begin comment text with an uppercase letter.
+Начинайте текст комментария с заглавной буквы.
 
-End comment text with a period.
+Заканчивайте текст комментария точкой.
 
-Insert one space between the comment delimiter (//) and the comment text, as shown in the following example.
+Оставляйте один пробел между символами комментария (`//`) и текстом комментария, как показано в следующем примере.
 
-The // (two slashes) style of comment tags should be used in most situations. Where ever possible, place comments above the code instead of beside it. Here are some examples:
+Стиль комментариев с двумя косыми чертами (`//`) следует использовать в большинстве случаев. По возможности размещайте комментарии над кодом, а не сбоку. Вот примеры:
+
 ```
-        // Sample comment above a variable.
-        private int _myInt = 5;
+    // Пример комментария над переменной.
+    private int _myInt = 5;
+
 ```
 
 #### Regions
